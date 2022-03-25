@@ -7,8 +7,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`
-
-Runs the app in the development mode.\
 Open [Covid Tracker](https://covid-tracker-618cf.web.app/) to view it in the browser.
 
 The page will reload if you make edits.\
