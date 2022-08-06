@@ -24,6 +24,7 @@ function App() {
   const [casesType, setCasesType] = useState("cases");
   const [mapCountries, setMapCountries] = useState([]);
   const [countryCod, setCountryCod] = useState("worldwide");
+
   //"https://disease.sh/v3/covid-19/countries"
   useEffect(() => {
     fetch("https://disease.sh/v3/covid-19/all")
@@ -55,6 +56,7 @@ function App() {
   const onCountryChange = async (event) => {
     const countryCode = event.target.value;
     setCountryCod(countryCode);
+
     const url =
       countryCode === "worldwide"
         ? "https://disease.sh/v3/covid-19/all"
@@ -65,7 +67,6 @@ function App() {
       .then((data) => {
         setCountry(countryCode);
         setCountryInfo(data);
-        console.log(data);
         countryCode === "worldwide"
           ? setMapCenter({ lat: 34.80746, lng: -40.4796 })
           : setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
@@ -87,7 +88,7 @@ function App() {
             >
               <MenuItem value="worldwide">Worldwide</MenuItem>
               {countries.map((country) => (
-                <MenuItem value={country.value}>{country.name}</MenuItem>
+                <MenuItem value={country.name}>{country.name}</MenuItem>
               ))}
             </Select>
           </FormControl>
